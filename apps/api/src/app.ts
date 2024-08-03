@@ -1,17 +1,22 @@
+import cors from 'cors';
 import express, {
-  json,
-  urlencoded,
   Express,
+  json,
+  NextFunction,
   Request,
   Response,
-  NextFunction,
+  urlencoded,
+  static as static_
 } from 'express';
-import cors from 'cors';
 import { PORT } from './config';
+import { AuthRouter } from './routers/auth.router';
 import { SampleRouter } from './routers/sample.router';
+import { join } from 'path';
+import { AdminRouter } from './routers/admin.router';
+import { BookRouter } from './routers/book.router';
 
 export default class App {
-  private app: Express;
+  readonly app: Express;
 
   constructor() {
     this.app = express();
@@ -24,6 +29,7 @@ export default class App {
     this.app.use(cors());
     this.app.use(json());
     this.app.use(urlencoded({ extended: true }));
+    this.app.use('/api/assets', static_(join(__dirname, '../public')))
   }
 
   private handleError(): void {
@@ -51,12 +57,18 @@ export default class App {
 
   private routes(): void {
     const sampleRouter = new SampleRouter();
+    const authRouter = new AuthRouter();
+    const adminRouter = new AdminRouter();
+    const bookRouter = new BookRouter();
 
     this.app.get('/api', (req: Request, res: Response) => {
       res.send(`Hello, Purwadhika Student !`);
     });
 
     this.app.use('/api/samples', sampleRouter.getRouter());
+    this.app.use('/api/auth', authRouter.getRouter());
+    this.app.use('/api/admin', adminRouter.getRouter());
+    this.app.use('/api/books', bookRouter.getRouter());
   }
 
   public start(): void {

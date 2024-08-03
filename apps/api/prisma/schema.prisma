@@ -19,3 +19,63 @@ model Sample {
 
   @@map("samples") // if you want to use snake_case format
 }
+
+model User {
+  id          Int         @id @default(autoincrement())
+  fullName    String
+  email       String      @unique
+  password    String
+  createdAt   DateTime    @default(now())
+  rentStatus  Status      @default(Free)
+  role        Role        @default(User)
+  booksRented RentBooks[]
+  Book        Book[]
+
+  @@map("users")
+}
+
+enum Status {
+  Free
+  Rent
+}
+
+enum Role {
+  User
+  Admin
+}
+
+model Book {
+  id          Int         @id @default(autoincrement())
+  title       String      @unique
+  description String      @db.LongText()
+  category    String
+  thumbnail   String
+  stock       Int
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  deletedAt   DateTime?
+  userId      Int
+  user        User        @relation(fields: [userId], references: [id])
+  rent        RentBooks[]
+
+  @@map("books")
+}
+
+enum RentStatus {
+  MasihDiPinjam
+  Terlambat
+  Ontime
+}
+
+model RentBooks {
+  bookId        Int 
+  userId        Int
+  rentStartDate DateTime   @default(now())
+  rentEndDate   DateTime?
+  returned      RentStatus @default(MasihDiPinjam)
+  book          Book       @relation(fields: [bookId], references: [id])
+  user          User       @relation(fields: [userId], references: [id])
+
+  @@id([bookId, userId])
+  @@map("rent_books")
+}
