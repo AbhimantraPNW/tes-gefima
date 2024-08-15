@@ -1,4 +1,4 @@
 export const appConfig = {
-    baseUrl: 'https://tes-gefima-web.vercel.app/',
-    baseUrlNext: 'http://localhost:3000',
-}
+  baseUrl: 'http://localhost:8000/api',
+  baseUrlNext: 'http://localhost:3000',
+};
