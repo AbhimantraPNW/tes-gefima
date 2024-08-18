@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -47,7 +47,7 @@ enum Role {
 model Book {
   id          Int         @id @default(autoincrement())
   title       String      @unique
-  description String      @db.LongText()
+  description String      @db.Text
   category    String
   thumbnail   String
   stock       Int
