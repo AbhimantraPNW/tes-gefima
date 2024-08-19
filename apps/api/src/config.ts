@@ -14,4 +14,5 @@ export const PORT = process.env.PORT || 8000;
 export const DATABASE_URL = process.env.DATABASE_URL || '';
 export const JWT_SECRET = process.env.JWT_SECRET || '';
 export const NEXT_BASE_URL = process.env.NEXT_BASE_URL || '';
+export const NEXT_PUBLIC_BASE_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL || '';
 
