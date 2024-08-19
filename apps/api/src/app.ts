@@ -73,7 +73,7 @@ export default class App {
 
   public start(): void {
     this.app.listen(PORT, () => {
-      console.log(`  ➜  [API] Local:   https://eifdmvehpovmpikxoivl.supabase.co/`);
+      console.log(`  ➜  [API] Local:   http://localhost:${PORT}/`);
     });
   }
 }

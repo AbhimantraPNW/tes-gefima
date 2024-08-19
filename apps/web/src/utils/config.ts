@@ -1,4 +1,4 @@
 export const appConfig = {
-  baseUrl: 'https://eifdmvehpovmpikxoivl.supabase.co/api',
+  baseUrl: 'http://localhost:8000/api',
   baseUrlNext: 'http://localhost:3000',
 };
