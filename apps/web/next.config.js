@@ -4,7 +4,7 @@ const nextConfig = {
         remotePatterns: [
           {
             protocol: 'https',
-            hostname: 'https://tes-gefima-web.vercel.app/',
+            hostname: 'https://tes-gefima-web.vercel.app',
           },
         ],
       },
