@@ -3,8 +3,8 @@ const nextConfig = {
     images: {
         remotePatterns: [
           {
-            protocol: 'https',
-            hostname: 'https://tes-gefima-web.vercel.app',
+            protocol: 'http',
+            hostname: 'localhost',
           },
         ],
       },
