@@ -8,7 +8,7 @@ import express, {
   urlencoded,
   static as static_
 } from 'express';
-import { PORT } from './config';
+import { NEXT_BASE_URL, PORT } from './config';
 import { AuthRouter } from './routers/auth.router';
 import { SampleRouter } from './routers/sample.router';
 import { join } from 'path';
@@ -72,8 +72,8 @@ export default class App {
   }
 
   public start(): void {
-    this.app.listen(PORT, () => {
-      console.log(`  ➜  [API] Local:   http://localhost:${PORT}/`);
+    this.app.listen(NEXT_BASE_URL, () => {
+      console.log(`  ➜  [API] Local:   ${NEXT_BASE_URL}/`);
     });
   }
 }
