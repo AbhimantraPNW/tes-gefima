@@ -5,15 +5,15 @@ import express, {
   NextFunction,
   Request,
   Response,
-  urlencoded,
-  static as static_
+  static as static_,
+  urlencoded
 } from 'express';
-import { NEXT_BASE_URL, PORT } from './config';
-import { AuthRouter } from './routers/auth.router';
-import { SampleRouter } from './routers/sample.router';
 import { join } from 'path';
+import { PORT } from './config';
 import { AdminRouter } from './routers/admin.router';
+import { AuthRouter } from './routers/auth.router';
 import { BookRouter } from './routers/book.router';
+import { SampleRouter } from './routers/sample.router';
 
 export default class App {
   readonly app: Express;
@@ -72,8 +72,8 @@ export default class App {
   }
 
   public start(): void {
-    this.app.listen(NEXT_BASE_URL, () => {
-      console.log(`  ➜  [API] Local:  https://tes-gefima-web.vercel.app/`);
+    this.app.listen(PORT, () => {
+      console.log(`  ➜  [API] Local:   http://localhost:${PORT}/`);
     });
   }
 }
