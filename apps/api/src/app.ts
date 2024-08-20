@@ -73,7 +73,7 @@ export default class App {
 
   public start(): void {
     this.app.listen(NEXT_BASE_URL, () => {
-      console.log(`  ➜  [API] Local:   ${NEXT_BASE_URL}/`);
+      console.log(`  ➜  [API] Local:  https://tes-gefima-web.vercel.app/`);
     });
   }
 }
