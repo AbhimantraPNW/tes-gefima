@@ -1,15 +1,5 @@
 {
     "version": 2,
-    "projects": {
-      "api": {
-        "src": "apps/api/src/index.ts",
-        "use": "@vercel/node"
-      },
-      "web": {
-        "src": "apps/web",
-        "use": "@vercel/next"
-      }
-    },
     "builds": [
       {
         "src": "apps/api/src/index.ts",
@@ -21,8 +11,7 @@
       }
     ],
     "routes": [
-      { "src": "/api/(.*)", "dest": "apps/api/src/index.ts" },
+      { "src": "/api/(.*)", "dest": "/apps/api/src/index.ts" },
       { "src": "/(.*)", "dest": "apps/web/$1" }
     ]
   }
-  
