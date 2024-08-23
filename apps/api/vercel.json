@@ -1,4 +1,4 @@
 {
-    "rewrites": [{ "source": "/api/(.*)", "destination": "/apps/api/dist/index.js" }]
+    "rewrites": [{ "source": "/api/(.*)", "destination": "/index.js" }]
   }
   
