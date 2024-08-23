@@ -4,13 +4,8 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**", ".vercel/output/**"]
     },
-    "web#build": {
-      "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**"]
-    }
-  },
     "lint": {},
     "test": {},
     "serve": {},
@@ -19,3 +14,4 @@
       "persistent": true
     }
   }
+}
