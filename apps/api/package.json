@@ -9,9 +9,7 @@
     "serve": "cross-env NODE_ENV=production node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prisma": "npx prisma",
-    "npx": "npx",
-    "postinstall": "prisma generate",
-    "prepare": "husky install"
+    "npx": "npx"
   },
   "author": "",
   "license": "ISC",
